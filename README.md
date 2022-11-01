@@ -14,4 +14,3 @@ Note that [file] (2_CRT-detection_crispr.sh) will work only if java file of the 
 Note that we specified the option `-minNR 2` which is responsible for minimum number of repeats is 2.
 You also can add option `-Xmx4096m` if you do not have enough cores/memory on your computer. 
 After running CRT program file will launch [next python file] (move_fasta_files_that_has_crispr_light.py) that will find and save in specified folder only fasta files that contain CRISPR elements.
-
