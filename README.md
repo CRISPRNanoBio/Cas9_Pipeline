@@ -17,3 +17,7 @@ Sometimes fasta file can be too long. We do not want to proceed the whole file. 
 ## Step 4.Identifying open reading frames
 [The python file](4_Identify_ORF_biopython.py) requires from user to specify `min_pro_len` parameter (minimum protein length). In case of Cas9 nuclease we recommend to put number in range  800 - 900.
 [Run this python file](4_Identify_ORF_biopython.py) on fasta files that passed step 3!
+
+## Step 5. Find fasta files that look similar to chosen Cas nuclease 
+This step will be performed with usage of HMMsearch and HMMbuild programs. So, before launching the files, please download hmmsearch in your terminal. Detailed information about HMMER program can be found [here](http://eddylab.org/software/hmmer/Userguide.pdf). 
+To run step 5 launch [this bash file](5_Hmmsearch.sh) that will launch [following python file](move_fasta_files_similar_to_Cas_nuclease.py).
