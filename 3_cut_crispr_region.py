@@ -14,7 +14,7 @@ for file in glob.glob(format_file_1):
     search=str(new_filename1)+'.out'
     #work with .out files
     with open(search) as k:
-        #uu=str(k.readlines())
+        
         bingo=[]
         lines = k.readlines() #run through each file
         for line in lines: 
