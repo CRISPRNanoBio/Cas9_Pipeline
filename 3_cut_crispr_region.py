@@ -1,11 +1,16 @@
 import glob, os
+import shutil
 foldername=str(input("Type the folder name where fasta and '.out' files are located (from 2 step): "))
 foldername=foldername+'/'
+directory="3_step_result/"
+path = os.path.join(os.getcwd(), directory) #create path for folder in current directory
+os.mkdir(path)
 length_ORF=int(input("Type the length of ORF that will be cutted from right and left sides of CRISPR-element:")) 
 format_file=str(input('Type  the format of the fasta file (.fa , .fasta, .fna etc) Type with the dot: '))
 len_format_file=-len(format_file)
 format_file_1='*'+format_file 
 os.chdir(foldername)
+files_to_move=[]
 #for each fasta file open .out file
 for file in glob.glob(format_file_1): 
     new_filename=str(file)
@@ -56,8 +61,16 @@ for file in glob.glob(format_file_1):
             name=str(file)[:len_format_file]+'_'+'nucl-coordin-of-crispr-'+str(before)+'-'+str(after)+'.fa' #add to the filename nucleotide positions that were saved
             with open(name, 'w') as f: 
                 f.write('>'+name[:-3]+' \n'+result)
+            files_to_move.append(name)    
     else:
-       print('Fasta file is small enough so you can use it in the next step without any changes')
-print("This step is completed! Go to the next step!")    
-    
-
+       print('file is less than 60k-you can use it without changes')    
+os.chdir("..") #moving up one directory
+# iterate files
+for cutted_file in files_to_move:
+    pattern = foldername+cutted_file
+    # construct full file path
+    for fileq in glob.iglob(pattern, recursive=True):
+         # extract file name form file path
+        res_file_name = os.path.basename(fileq)
+        shutil.move(fileq, directory + res_file_name)       
+print("All created cutted files are moved to the folder '3_step_result'. This step is completed! Go to the next step!")
