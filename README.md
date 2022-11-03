@@ -15,5 +15,5 @@ You need to download the CRT program  http://www.room220.com/crt/CRT1.2-CLI.jar.
 Sometimes fasta file can be too long. We do not want to proceed the whole file. Instead we will save only that nucleotide location where CRISPR was found.<br/>You will need to specify the number of nucleotides that should be saved from the left and right side of the CRISPR-element. In case of searching for Cas 9 nuclease we recommend to put 30 000.<br/>Launch [this python file](3_cut_crispr_region.py) by typing in terminal `python3 3_cut_crispr_region.py` 
 
 ## Step 4.Identifying open reading frames
-[The python file]() requires from user to specify `min_pro_len` parameter (minimum protein length). In case of Cas9 nuclease we recommend to put number in range  800 - 900.
-Run this python file on fasta files that passed step 3!
+[The python file](4_Identify_ORF_biopython.py) requires from user to specify `min_pro_len` parameter (minimum protein length). In case of Cas9 nuclease we recommend to put number in range  800 - 900.
+[Run this python file](4_Identify_ORF_biopython.py) on fasta files that passed step 3!
