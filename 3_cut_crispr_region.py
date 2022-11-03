@@ -57,5 +57,7 @@ for file in glob.glob(format_file_1):
             with open(name, 'w') as f: 
                 f.write('>'+name[:-3]+' \n'+result)
     else:
-       print('file is less than 60k-you can use it without changes')      
+       print('Fasta file is small enough so you can use it in the next step without any changes')
+print("This step is completed! Go to the next step!")    
+    
 
