@@ -63,7 +63,7 @@ for file in glob.glob(format_file_1):
                 f.write('>'+name[:-3]+' \n'+result)
             files_to_move.append(name)    
     else:
-       print('file is less than 60k-you can use it without changes')    
+       print('File is small- you can use it in the next step without changes')    
 os.chdir("..") #moving up one directory
 # iterate files
 for cutted_file in files_to_move:
