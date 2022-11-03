@@ -16,10 +16,10 @@ echo Hmmsearch Step successfully done! program created ".out" files.In the same 
 echo Now files that are similar to chosen Cas profile will be filtered and saved in specified folder!
 
 #read -p 'Type the destination folder name (must already exist) where this fasta files will be located: ' 
-mkdir foldername_Cas-nuclease_file_save
-find $foldername_file/ -type f -exec grep -qiF 'Alignments for each domain' {} \; -exec mv {} foldername_Cas-nuclease_file_save/ \;
-if    ls -A1q foldername_Cas-nuclease_file_save/ | grep -q .
-then  ls foldername_Cas-nuclease_file_save/ > Similar_to_nuclease_files.txt | python3 move_fasta_files_similar_to_Cas_nuclease.py "$foldername_file" "$format" 
+mkdir 5_Hmmsearch_result
+find $foldername_file/ -type f -exec grep -qiF 'Alignments for each domain' {} \; -exec mv {} 5_Hmmsearch_result/ \;
+if    ls -A1q 5_Hmmsearch_result/ | grep -q .
+then  ls 5_Hmmsearch_result/ > Similar_to_nuclease_files.txt | python3 move_fasta_files_similar_to_Cas_nuclease.py "$foldername_file" "$format" 
 else  echo No files were similar to Cas nuclease
 fi
 

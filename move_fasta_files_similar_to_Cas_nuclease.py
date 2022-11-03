@@ -8,7 +8,7 @@ filename_txt="Similar_to_nuclease_files.txt"
 source_folder=sys.argv[1] 
 source_folder=source_folder+"/"
 format_files=sys.argv[2] 
-destination_folder="foldername_Cas-nuclease_file_save/"
+destination_folder="5_Hmmsearch_result/"
 files_to_move=[]
 #read "Similar_to_nuclease_files.txt"  file where written all names of fasta files that contain CRISPR
 with open(filename_txt) as file:
