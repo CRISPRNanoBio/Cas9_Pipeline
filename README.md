@@ -21,3 +21,6 @@ Sometimes fasta file can be too long. We do not want to proceed the whole file. 
 ## Step 5. Find fasta files that look similar to chosen Cas nuclease 
 This step will be performed with usage of HMMsearch and HMMbuild programs. So, before launching the files, please download hmmsearch in your terminal. Detailed information about HMMER program can be found [here](http://eddylab.org/software/hmmer/Userguide.pdf). 
 To run step 5 launch [this bash file](5_Hmmsearch.sh) that will launch [following python file](move_fasta_files_similar_to_Cas_nuclease.py).
+
+## Step 6. Classification of Cas nuclease subtype.
+For this step you will need to have profiles of Cas nuclease subtypes. [Run this bash file](6_Identification_subtypes_nuclease.sh) that will launch [python file](6_Identification_subtypes_nuclease.py)
