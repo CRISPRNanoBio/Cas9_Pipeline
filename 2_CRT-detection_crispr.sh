@@ -13,7 +13,8 @@ echo Filtration in progress! It can take a lot of time. Do not shut down the cod
 
 mkdir 2_CRT_result
 find $foldername_file/ -type f -exec grep -qiF 'REPEAT' {} \; -exec mv {} 2_CRT_result/ \;
-ls 2_CRT_result/ > CRISPR_found_in_this_files.txt
-
-python3 move_fasta_files_that_has_crispr_light.py "$foldername_file" "$format" 
+if    ls -A1q 2_CRT_result/ | grep -q .
+then ls 2_CRT_result/ > CRISPR_found_in_this_files.txt | python3 move_fasta_files_that_has_crispr_light.py "$foldername_file" "$format" 
+else  echo No CRISPR was detected 
+fi
 
