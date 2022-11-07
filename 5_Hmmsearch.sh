@@ -15,7 +15,7 @@ for f in $foldername_file/*$format ; do hmmsearch $nuclease_name.hmm  "$f" > "${
 echo Hmmsearch Step successfully done! program created ".out" files.In the same directory with fasta files 
 echo Now files that are similar to chosen Cas profile will be filtered and saved in specified folder!
 
-#read -p 'Type the destination folder name (must already exist) where this fasta files will be located: ' 
+ 
 mkdir 5_Hmmsearch_result
 find $foldername_file/ -type f -exec grep -qiF 'Alignments for each domain' {} \; -exec mv {} 5_Hmmsearch_result/ \;
 if    ls -A1q 5_Hmmsearch_result/ | grep -q .
