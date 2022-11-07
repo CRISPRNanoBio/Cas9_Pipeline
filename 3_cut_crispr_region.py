@@ -11,6 +11,7 @@ len_format_file=-len(format_file)
 format_file_1='*'+format_file 
 os.chdir(foldername)
 files_to_move=[]
+small_files_to_move=[]
 #for each fasta file open .out file
 for file in glob.glob(format_file_1): 
     new_filename=str(file)
@@ -63,14 +64,24 @@ for file in glob.glob(format_file_1):
                 f.write('>'+name[:-3]+' \n'+result)
             files_to_move.append(name)    
     else:
-       print('File is small- you can use it in the next step without changes')    
+       small_files_to_move.append(str(file))    
 os.chdir("..") #moving up one directory
-# iterate files
+for small_file in small_files_to_move:
+    small_pattern = foldername+small_file
+     # construct full file path      
+    for file_s in glob.iglob(small_pattern, recursive=True):
+        # extract file name form file path
+        small_res_file_name = os.path.basename(file_s)
+        shutil.move(file_s, directory + small_res_file_name) 
+    print(small_file+' '+'is small- use it in the step 4 without changes.')
+    
+            # iterate files
 for cutted_file in files_to_move:
     pattern = foldername+cutted_file
-    # construct full file path
+                # construct full file path
     for fileq in glob.iglob(pattern, recursive=True):
-         # extract file name form file path
+                    # extract file name form file path
         res_file_name = os.path.basename(fileq)
-        shutil.move(fileq, directory + res_file_name)       
-print("All created cutted files are moved to the folder '3_step_result'. This step is completed! Go to the next step!")
+        shutil.move(fileq, directory + res_file_name)
+    print(cutted_file+' ' +'-was successfully cutted!')           
+print('Files are moved to the folder "3_step_result". This step is completed! Go to the next step!')
