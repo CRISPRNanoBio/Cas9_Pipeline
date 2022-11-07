@@ -8,8 +8,7 @@ filename_txt="CRISPR_found_in_this_files.txt"
 source_folder=sys.argv[1] 
 source_folder=source_folder+"/"
 format_files=sys.argv[2] 
-destination_folder=sys.argv[3]  
-destination_folder=destination_folder+"/"
+destination_folder="2_CRT_result/"  
 files_to_move=[]
 #read "CRISPR_found_in_this_files.txt"  file where written all names of fasta files that contain CRISPR
 with open(filename_txt) as file:
