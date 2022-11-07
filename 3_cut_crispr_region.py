@@ -1,7 +1,7 @@
 import glob, os
 import shutil
-foldername=str(input("Type the folder name where fasta and '.out' files are located (from 2 step): "))
-foldername=foldername+'/'
+
+foldername="2_CRT_result/"
 directory="3_step_result/"
 path = os.path.join(os.getcwd(), directory) #create path for folder in current directory
 os.mkdir(path)
