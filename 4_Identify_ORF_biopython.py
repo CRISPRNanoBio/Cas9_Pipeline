@@ -7,8 +7,7 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio import BiopythonWarning
 
-foldername=str(input("Type the folder name where fasta files are located (from 3 step): "))
-foldername=foldername+'/'
+foldername='3_step_result/'
 length_folder_name=len(foldername)
 min_pro_len=int(input("Specify the minimum protein length (min_pro_len): "))
 format_file=str(input('Type  the format of the fasta file (.fa , .fasta, .fna etc) Type with the dot: '))
